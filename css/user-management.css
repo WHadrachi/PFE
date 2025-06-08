@@ -1,0 +1,229 @@
+/* User Management Styles for INWI Automated Testing Platform */
+
+/* User Info in Header */
+.user-info {
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+    padding: 8px 15px;
+    background-color: rgba(173, 50, 132, 0.1);
+    border-radius: var(--radius-md);
+    border: 1px solid rgba(173, 50, 132, 0.2);
+}
+
+.user-email {
+    font-weight: 500;
+    margin-right: 10px;
+}
+
+.user-role {
+    font-size: 0.8rem;
+    padding: 3px 8px;
+    border-radius: var(--radius-sm);
+    margin-right: 15px;
+    text-transform: capitalize;
+}
+
+.user-role.admin {
+    background-color: var(--inwi-primary-light);
+    color: var(--white);
+}
+
+.user-role.user {
+    background-color: var(--blue-light);
+    color: var(--blue);
+}
+
+.logout-btn {
+    background: none;
+    border: none;
+    color: var(--gray);
+    cursor: pointer;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    transition: color var(--transition-fast);
+}
+
+.logout-btn:hover {
+    color: var(--inwi-primary);
+}
+
+.logout-btn i {
+    margin-right: 5px;
+}
+
+/* User Management Page */
+#user-management .user-list-section {
+    margin-bottom: 40px;
+}
+
+#user-management .role {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: var(--radius-sm);
+    font-size: 0.85rem;
+    text-transform: capitalize;
+}
+
+#user-management .role.admin {
+    background-color: var(--inwi-primary-light);
+    color: var(--white);
+}
+
+#user-management .role.user {
+    background-color: var(--blue-light);
+    color: var(--blue);
+}
+
+#user-management .edit-btn,
+#user-management .delete-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px 10px;
+    border-radius: var(--radius-sm);
+    transition: all var(--transition-fast);
+}
+
+#user-management .edit-btn {
+    color: var(--blue);
+}
+
+#user-management .edit-btn:hover {
+    background-color: var(--blue-light);
+}
+
+#user-management .delete-btn {
+    color: var(--red);
+}
+
+#user-management .delete-btn:hover {
+    background-color: var(--red-light);
+}
+
+/* Add User Form */
+.user-form {
+    background-color: var(--light-gray);
+    padding: 20px;
+    border-radius: var(--radius-md);
+    max-width: 500px;
+}
+
+.user-form .form-group {
+    margin-bottom: 15px;
+}
+
+.user-form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+
+.user-form input,
+.user-form select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: var(--radius-sm);
+    font-size: 1rem;
+}
+
+.user-form input:focus,
+.user-form select:focus {
+    border-color: var(--inwi-primary);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(173, 50, 132, 0.1);
+}
+
+.user-form .action-btn {
+    background: linear-gradient(to right, var(--inwi-primary), var(--inwi-primary-light));
+    color: var(--white);
+    border: none;
+    padding: 12px 24px;
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    font-weight: 600;
+    transition: all var(--transition-normal);
+    margin-top: 10px;
+}
+
+.user-form .action-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+/* Table Row Hover Effect */
+.data-table tbody tr.row-hover {
+    background-color: rgba(173, 50, 132, 0.05);
+    transform: scale(1.01);
+    box-shadow: var(--shadow-sm);
+    z-index: 1;
+    transition: all var(--transition-fast);
+}
+
+/* Alert Styles */
+.alert {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 0;
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-lg);
+    z-index: 1000;
+    max-width: 350px;
+    transform: translateY(-20px);
+    opacity: 0;
+    transition: all 0.3s ease-in-out;
+}
+
+.alert.show {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.alert.hide {
+    transform: translateY(-20px);
+    opacity: 0;
+}
+
+.alert-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 20px;
+    background-color: var(--inwi-primary);
+    color: var(--white);
+    border-radius: var(--radius-md);
+}
+
+.alert.success .alert-content {
+    background-color: var(--green);
+}
+
+.alert.error .alert-content {
+    background-color: var(--red);
+}
+
+.alert.warning .alert-content {
+    background-color: var(--yellow);
+}
+
+.alert.info .alert-content {
+    background-color: var(--blue);
+}
+
+.close-alert {
+    background: none;
+    border: none;
+    color: var(--white);
+    font-size: 1.2rem;
+    cursor: pointer;
+    margin-left: 10px;
+    opacity: 0.7;
+    transition: opacity var(--transition-fast);
+}
+
+.close-alert:hover {
+    opacity: 1;
+}

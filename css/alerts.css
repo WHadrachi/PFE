@@ -1,0 +1,70 @@
+/* Alert Styles */
+.alert {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    max-width: 400px;
+    padding: 15px;
+    border-radius: var(--radius-md);
+    background-color: var(--white);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    z-index: 1000;
+    transform: translateX(120%);
+    transition: transform 0.3s ease-in-out;
+    opacity: 0;
+}
+
+.alert.show {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+.alert-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.alert-message {
+    flex: 1;
+    margin-right: 15px;
+}
+
+.alert-close {
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+    color: var(--gray);
+    transition: color 0.2s;
+}
+
+.alert-close:hover {
+    color: var(--dark);
+}
+
+/* Alert Types */
+.alert-success {
+    border-left: 4px solid var(--success);
+}
+
+.alert-error {
+    border-left: 4px solid var(--error);
+}
+
+.alert-warning {
+    border-left: 4px solid var(--warning);
+}
+
+.alert-info {
+    border-left: 4px solid var(--inwi-primary);
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .alert {
+        left: 20px;
+        right: 20px;
+        max-width: calc(100% - 40px);
+    }
+}

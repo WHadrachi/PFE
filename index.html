@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INWI Automated Testing Platform</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/user-management.css">
+    <link rel="stylesheet" href="css/modal.css">
+    <link rel="stylesheet" href="css/profile.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar Navigation -->
+        <div class="sidebar">
+            <div class="logo-container">
+                
+                <!-- <img src="http://0x0.st/8ObF.svg.png" alt="INWI Logo" class="logo"> -->
+            </div>
+            <nav>
+                <ul>
+                    <li class="nav-item active" data-page="dashboard">
+                        <i class="fas fa-tachometer-alt"></i>
+                        <span>Dashboard</span>
+                    </li>
+                    <li class="nav-item" data-page="test-cases">
+                        <i class="fas fa-vial"></i>
+                        <span>Test Cases</span>
+                    </li>
+                    <li class="nav-item" data-page="test-suites">
+                        <i class="fas fa-layer-group"></i>
+                        <span>Test Suites</span>
+                    </li>
+                    <li class="nav-item" data-page="reports">
+                        <i class="fas fa-chart-bar"></i>
+                        <span>Reports</span>
+                    </li>
+                    <li class="nav-item" data-page="web-services">
+                        <i class="fas fa-globe"></i>
+                        <span>Web Services</span>
+                    </li>
+                    <li class="nav-item" data-page="profile">
+                        <i class="fas fa-user-circle"></i>
+                        <span>My Profile</span>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+
+        <!-- Main Content Area -->
+        <div class="main-content">
+            <!-- Header -->
+            <header>
+                <div class="header-logo">
+                    <img src="http://0x0.st/8ObF.svg.png" alt="INWI Logo">
+                </div>
+                <h1 class="header-title">Automated Testing Platform</h1>
+                <!-- <button class="run-test-btn">Run Test</button> -->
+            </header>
+
+            <!-- Page Content -->
+            <div class="page-content">
+                <!-- Dashboard Page -->
+                <div class="page" id="dashboard">
+                    <h2>Dashboard</h2>
+                    
+                    <!-- Overview Section -->
+                    <section class="overview-section">
+                        <div class="metric-cards">
+                            <div class="metric-card blue">
+                                <h3>Total Tests Run</h3>
+                                <p class="metric-value">150</p>
+                            </div>
+                            <div class="metric-card green">
+                                <h3>Pass Rate</h3>
+                                <p class="metric-value">95%</p>
+                            </div>
+                            <div class="metric-card red">
+                                <h3>Last Test Run</h3>
+                                <p class="metric-value">2023-10-01</p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Recent Run Tests Section -->
+                    <section class="recent-tests-section">
+                        <h3>Recent Run Tests</h3>
+                        <div class="table-container">
+                            <table class="data-table">
+                                <thead>
+                                    <tr>
+                                        <th>Test ID</th>
+                                        <th>Service Type</th>
+                                        <th>Status</th>
+                                        <th>Date</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>T-001</td>
+                                        <td>SubActivation</td>
+                                        <td><span class="status success">Success</span></td>
+                                        <td>2023-10-01</td>
+                                    </tr>
+                                    <tr>
+                                        <td>T-002</td>
+                                        <td>ChangeSubInfo</td>
+                                        <td><span class="status success">Success</span></td>
+                                        <td>2023-09-30</td>
+                                    </tr>
+                                    <tr>
+                                        <td>T-003</td>
+                                        <td>Recharge</td>
+                                        <td><span class="status failed">Failed</span></td>
+                                        <td>2023-09-29</td>
+                                    </tr>
+                                    <tr>
+                                        <td>T-004</td>
+                                        <td>SubDeactivation</td>
+                                        <td><span class="status success">Success</span></td>
+                                        <td>2023-09-28</td>
+                                    </tr>
+                                    <tr>
+                                        <td>T-005</td>
+                                        <td>ChangeCL</td>
+                                        <td><span class="status success">Success</span></td>
+                                        <td>2023-09-27</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </section>
+
+                    <!-- Quick Actions Section -->
+                    <section class="quick-actions-section">
+                        <h3>Quick Actions</h3>
+                        <div class="action-buttons">
+                            <button class="action-btn">Create New Test</button>
+                            <button class="action-btn">Run Suite Test</button>
+                            <button class="action-btn">Generate Report</button>
+                        </div>
+                    </section>
+                </div>
+
+                <!-- Test Cases Page -->
+                <div class="page" id="test-cases" style="display: none;">
+                    <h2>Test Cases</h2>
+                    
+                    <!-- Test Type Dropdown -->
+                    <div class="dropdown-container">
+                        <label for="test-type">Create a Test:</label>
+                        <select id="test-type" class="test-type-dropdown">
+                            <option value="" selected disabled>Select Test Type</option>
+                            <option value="SubDeactivation">SubDeactivation</option>
+                            <option value="CreateSubscriber">CreateSubscriber</option>
+                            <option value="SubActivation">SubActivation</option>
+                            <option value="ChangeSubInfo">ChangeSubInfo</option>
+                            <option value="ChangeCL">ChangeCL</option>
+                            <option value="ChangeSubValidity">ChangeSubValidity</option>
+                            <option value="ChangeMP">ChangeMP</option>
+                            <option value="Starcode">Starcode</option>
+                            <option value="Recharge-CashRechargeSimple">Recharge-CashRechargeSimple</option>
+                            <option value="Adjustment">Adjustment</option>
+                            <option value="ChangeSubOffering">ChangeSubOffering</option>
+                            <option value="Recharge - CashRechargeStar">Recharge - CashRechargeStar</option>
+                        </select>
+                    </div>
+
+                    <!-- Dynamic Forms Container -->
+                    <div class="dynamic-forms-container">
+                        <!-- Forms will be dynamically inserted here -->
+                    </div>
+                </div>
+
+                <!-- Test Suites Page -->
+                <div class="page" id="test-suites" style="display: none;">
+                    <h2>Test Suites</h2>
+                    
+                    <!-- Current Running Tests Section -->
+                    <section class="running-tests-section">
+                        <h3>Current Running Tests</h3>
+                        <div class="table-container">
+                            <table class="data-table">
+                                <thead>
+                                    <tr>
+                                        <th>Suite ID</th>
+                                        <th>Status</th>
+                                        <th>Progress</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>S-001</td>
+                                        <td><span class="status running">Running</span></td>
+                                        <td>
+                                            <div class="progress-bar">
+                                                <div class="progress" style="width: 75%;"></div>
+                                            </div>
+                                            <span class="progress-text">75%</span>
+                                        </td>
+                                        <td>
+                                            <button class="stop-test-btn"><i class="fas fa-stop"></i> Stop Test</button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>S-002</td>
+                                        <td><span class="status running">Running</span></td>
+                                        <td>
+                                            <div class="progress-bar">
+                                                <div class="progress" style="width: 25%;"></div>
+                                            </div>
+                                            <span class="progress-text">25%</span>
+                                        </td>
+                                        <td>
+                                            <button class="stop-test-btn"><i class="fas fa-stop"></i> Stop Test</button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </section>
+
+                    <!-- Schedule Tests Section -->
+                    <section class="schedule-tests-section">
+                        <h3>Schedule Tests</h3>
+                        <div class="action-buttons">
+                            <button class="action-btn">Start Scheduled Test</button>
+                            <button class="action-btn">Cancel Scheduled Test</button>
+                        </div>
+                    </section>
+                </div>
+
+                <!-- Reports Page -->
+                <div class="page" id="reports" style="display: none;">
+                    <h2>Reports</h2>
+                    
+                    <!-- Generated Reports Section -->
+                    <section class="generated-reports-section">
+                        <h3>Generated Reports</h3>
+                        <div class="table-container">
+                            <table class="data-table">
+                                <thead>
+                                    <tr>
+                                        <th>Report ID</th>
+                                        <th>Generated On</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>R-001</td>
+                                        <td>2023-10-01</td>
+                                        <td>
+                                            <button class="download-btn">Download</button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>R-002</td>
+                                        <td>2023-09-30</td>
+                                        <td>
+                                            <button class="download-btn">Download</button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>R-003</td>
+                                        <td>2023-09-29</td>
+                                        <td>
+                                            <button class="download-btn">Download</button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>R-004</td>
+                                        <td>2023-09-28</td>
+                                        <td>
+                                            <button class="download-btn">Download</button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>R-005</td>
+                                        <td>2023-09-27</td>
+                                        <td>
+                                            <button class="download-btn">Download</button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </section>
+                </div>
+                
+                <!-- Web Services Page -->
+                <div class="page" id="web-services" style="display: none;">
+                    <h2>Web Services</h2>
+                    
+                    <!-- Test Selection Section -->
+                    <section class="test-selection-section">
+                        <h3>Select Tests to Execute</h3>
+                        <div class="test-checkboxes-container">
+                            <div class="checkbox-group">
+                                <input type="checkbox" id="test-SubDeactivation" name="test-types" value="SubDeactivation">
+                                <label for="test-SubDeactivation">SubDeactivation</label>
+                            </div>
+                            <div class="checkbox-group">
+                                <input type="checkbox" id="test-CreateSubscriber" name="test-types" value="CreateSubscriber">
+                                <label for="test-CreateSubscriber">CreateSubscriber</label>
+                            </div>
+                            <div class="checkbox-group">
+                                <input type="checkbox" id="test-SubActivation" name="test-types" value="SubActivation">
+                                <label for="test-SubActivation">SubActivation</label>
+                            </div>
+                            <div class="checkbox-group">
+                                <input type="checkbox" id="test-ChangeSubInfo" name="test-types" value="ChangeSubInfo">
+                                <label for="test-ChangeSubInfo">ChangeSubInfo</label>
+                            </div>
+                            <div class="checkbox-group">
+                                <input type="checkbox" id="test-ChangeCL" name="test-types" value="ChangeCL">
+                                <label for="test-ChangeCL">ChangeCL</label>
+                            </div>
+                            <div class="checkbox-group">
+                                <input type="checkbox" id="test-ChangeSubValidity" name="test-types" value="ChangeSubValidity">
+                                <label for="test-ChangeSubValidity">ChangeSubValidity</label>
+                            </div>
+                            <div class="checkbox-group">
+                                <input type="checkbox" id="test-ChangeMP" name="test-types" value="ChangeMP">
+                                <label for="test-ChangeMP">ChangeMP</label>
+                            </div>
+                            <div class="checkbox-group">
+                                <input type="checkbox" id="test-Starcode" name="test-types" value="Starcode">
+                                <label for="test-Starcode">Starcode</label>
+                            </div>
+                            <div class="checkbox-group">
+                                <input type="checkbox" id="test-CashRechargeSimple" name="test-types" value="CashRechargeSimple">
+                                <label for="test-CashRechargeSimple">CashRechargeSimple</label>
+                            </div>
+                            <div class="checkbox-group">
+                                <input type="checkbox" id="test-Adjustment" name="test-types" value="Adjustment">
+                                <label for="test-Adjustment">Adjustment</label>
+                            </div>
+                            <div class="checkbox-group">
+                                <input type="checkbox" id="test-ChangeSubOffering" name="test-types" value="ChangeSubOffering">
+                                <label for="test-ChangeSubOffering">ChangeSubOffering</label>
+                            </div>
+                            <div class="checkbox-group">
+                                <input type="checkbox" id="test-CashRechargeStar" name="test-types" value="CashRechargeStar">
+                                <label for="test-CashRechargeStar">CashRechargeStar</label>
+                            </div>
+                        </div>
+                    </section>
+                    
+                    <!-- File Import Section -->
+                    <section class="file-import-section">
+                        <h3>Import Test Data</h3>
+                        <div class="file-import-container">
+                            <div class="form-group">
+                                <label for="test-data-file">Import Text File:</label>
+                                <input type="file" id="test-data-file" name="test-data-file" accept=".txt">
+                            </div>
+                            <div class="file-preview" id="file-preview">
+                                <p>No file selected</p>
+                            </div>
+                        </div>
+                    </section>
+                    
+                    <!-- Test Service Button -->
+                    <section class="test-service-section">
+                        <button id="test-service-btn" class="action-btn">Test Service</button>
+                    </section>
+                </div>
+                
+                <!-- Profile Page -->
+                <div class="page" id="profile" style="display: none;">
+                    <h2>My Profile</h2>
+                    
+                    <!-- Profile Information Section -->
+                    <div class="profile-container">
+                        <div class="profile-header">
+                            <div class="profile-avatar">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <div class="profile-title">
+                                <h3 id="profile-name">User Name</h3>
+                                <span id="profile-role-badge" class="profile-role user">User</span>
+                            </div>
+                        </div>
+                        
+                        <!-- Profile Information Display -->
+                        <div id="profile-info-display">
+                            <section class="profile-section">
+                                <h3>Personal Information</h3>
+                                <ul class="profile-info-list">
+                                    <li class="profile-info-item">
+                                        <span class="profile-info-label">User ID</span>
+                                        <span id="profile-id" class="profile-info-value">-</span>
+                                    </li>
+                                    <li class="profile-info-item">
+                                        <span class="profile-info-label">Name</span>
+                                        <span id="profile-display-name" class="profile-info-value">-</span>
+                                    </li>
+                                    <li class="profile-info-item">
+                                        <span class="profile-info-label">Email</span>
+                                        <span id="profile-email" class="profile-info-value">-</span>
+                                    </li>
+                                    <li class="profile-info-item">
+                                        <span class="profile-info-label">Role</span>
+                                        <span id="profile-role" class="profile-info-value">-</span>
+                                    </li>
+                                    <li class="profile-info-item">
+                                        <span class="profile-info-label">Last Login</span>
+                                        <span id="profile-last-login" class="profile-info-value">-</span>
+                                    </li>
+                                </ul>
+                            </section>
+                            
+                            <div class="profile-actions">
+                                <button id="edit-profile-btn" class="edit-profile-btn">
+                                    <i class="fas fa-edit"></i> Edit Profile
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <!-- Profile Edit Form -->
+                        <div id="profile-edit-form" class="profile-form" style="display: none;">
+                            <section class="profile-section">
+                                <h3>Edit Personal Information</h3>
+                                <form id="edit-profile-form">
+                                    <div class="form-group">
+                                        <label for="edit-profile-id">User ID</label>
+                                        <input type="text" id="edit-profile-id" name="edit-profile-id" disabled>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="edit-profile-name">Name</label>
+                                        <input type="text" id="edit-profile-name" name="edit-profile-name" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="edit-profile-email">Email</label>
+                                        <input type="email" id="edit-profile-email" name="edit-profile-email" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="edit-profile-role">Role</label>
+                                        <input type="text" id="edit-profile-role" name="edit-profile-role" disabled>
+                                    </div>
+                                    
+                                    <div class="password-section">
+                                        <button type="button" id="change-password-toggle" class="change-password-toggle">
+                                            <i class="fas fa-key"></i> Change Password
+                                        </button>
+                                        
+                                        <div id="change-password-form" class="change-password-form">
+                                            <div class="form-group">
+                                                <label for="current-password">Current Password</label>
+                                                <input type="password" id="current-password" name="current-password">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="new-password">New Password</label>
+                                                <input type="password" id="new-password" name="new-password">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="confirm-password">Confirm New Password</label>
+                                                <input type="password" id="confirm-password" name="confirm-password">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="profile-actions">
+                                        <button type="button" id="cancel-profile-btn" class="cancel-profile-btn">
+                                            <i class="fas fa-times"></i> Cancel
+                                        </button>
+                                        <button type="submit" id="save-profile-btn" class="save-profile-btn">
+                                            <i class="fas fa-save"></i> Save Changes
+                                        </button>
+                                    </div>
+                                </form>
+                            </section>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
